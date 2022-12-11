@@ -14,12 +14,12 @@ namespace Lab_4_1_12
     {
         static void Main(string[] args)
         {
-            int[] array = new int[5];
+            int[] array = new int[10];
             Random random = new Random();
 
             for (int i = 0; i < array.Length; i++)
             {
-                array[i] = random.Next(-10, 10);
+                array[i] = random.Next(-50, 50);
                 Console.Write(array[i] + " ");
             }
             Console.WriteLine();
@@ -33,7 +33,13 @@ namespace Lab_4_1_12
                     break;
                 }
             }
-            Console.WriteLine(num);
+            Console.WriteLine($"Номер = {num} \n");
+
+            // Linq
+            var res = array.Where(x => x % 2 == 0).First();
+            var number = Array.IndexOf(array, res);
+            Console.WriteLine($"Linq: \nres = {res}, Номер = {number}");            
+
             Console.ReadKey();
         }
     }
